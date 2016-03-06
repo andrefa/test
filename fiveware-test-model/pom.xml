@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>fiveware-test-model</artifactId>
-	<name>Fiveware Model Module</name>
+	<name>Fiveware Model Layer</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
