@@ -19,7 +19,7 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<T> findAll() {
+	public List<T> list() {
 		return getSession().createCriteria(this.entityClass).list();
 	}
 

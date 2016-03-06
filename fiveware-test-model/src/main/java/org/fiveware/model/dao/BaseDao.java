@@ -6,7 +6,7 @@ import org.fiveware.model.entity.BaseEntity;
 
 public interface BaseDao <T extends BaseEntity> {
 
-	List<T> findAll();
+	List<T> list();
 
 	T findById(Long pk);
 
