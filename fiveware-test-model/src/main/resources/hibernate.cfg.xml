@@ -6,9 +6,9 @@
 		<!-- Configuration -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/fiveware</property>
-		<property name="hibernate.connection.username">fiveware</property>
-		<property name="hibernate.connection.password">fiveware</property>
+		<property name="hibernate.connection.url">jdbc:mysql://cpmy0130.servidorwebfacil.com:3306/andrefal_wp</property>
+		<property name="hibernate.connection.username">andrefal_2</property>
+		<property name="hibernate.connection.password">banana123</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.show_sql">true</property>
 
