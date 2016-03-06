@@ -13,9 +13,8 @@
 		<property name="hibernate.show_sql">true</property>
 
 		<!-- Entities -->
-		<mapping class="org.fiveware.model.entity.Product" />
-		<mapping class="org.fiveware.model.entity.ProductType" />
-		<mapping class="org.fiveware.model.entity.ProductAvailability" />
+		<mapping class="org.fiveware.model.entity.User" />
+		<mapping class="org.fiveware.model.entity.Interest" />
 
 	</session-factory>
 

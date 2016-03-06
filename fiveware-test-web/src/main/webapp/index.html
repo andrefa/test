@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="fiveware-test-app">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Expires" CONTENT="-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet"/>
+		<link href="assets/css/custom.css" rel="stylesheet"/>
+		<title>Fiveware Test!</title>
+	</head>
+	<body>
+
+		<div ui-view></div>
+
+		<!-- third party -->
+		<script src="assets/libs/angular.min.js"></script>
+		<script src="assets/libs/angular-animate.min.js"></script>
+		<script src="assets/libs/ui-bootstrap.min.js"></script>
+		<script src="assets/libs/angular-ui-router.min.js"></script>
+		<script src="assets/libs/angular-resource.min.js"></script>
+		
+		<!-- internal -->
+		<script src="app/fiveware-test.module.js"></script>
+		<script src="app/fiveware-test.routes.js"></script>
+
+		<script src="app/components/shared/refdataService.js"></script>
+		<script src="app/components/shared/interestService.js"></script>
+		<script src="app/components/shared/userService.js"></script>
+		
+		<script src="app/components/userList/userListController.js"></script>
+		
+		<script src="app/components/user/userController.js"></script>
+		
+	</body>
+</html>

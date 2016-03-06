@@ -1,11 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.fiveware</groupId>
 	<artifactId>fiveware-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Test Parent</name>
+
+	<modules>
+		<module>fiveware-test-model</module>
+		<module>fiveware-test-service</module>
+		<module>fiveware-test-web</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,9 +32,7 @@
 	</dependencies>
 
 	<build>
-
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
@@ -46,9 +51,7 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
 	</build>
 
 </project>
