@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.fiveware</groupId>
+		<artifactId>fiveware-test</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>fiveware-test-service</artifactId>
+	<name>Fiveware Service Layer</name>
+	<packaging>jar</packaging>
+	
+	<dependencies>
+		
+		<!-- Model -->
+		<dependency>
+			<groupId>org.fiveware</groupId>
+			<artifactId>fiveware-test-model</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		
+	</dependencies>
+</project>
