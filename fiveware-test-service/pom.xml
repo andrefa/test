@@ -11,6 +11,7 @@
 	</parent>
 	
 	<artifactId>fiveware-test-service</artifactId>
+	<version>0.1-SNAPSHOT</version>
 	<name>Fiveware Service Layer</name>
 	<packaging>jar</packaging>
 	
