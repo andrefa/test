@@ -3,5 +3,6 @@
 
     angular.module('fiveware-test-app', ['ui.bootstrap', 
     									 'ui.router',
-    									 'ngResource']);
+    									 'ngResource',
+    									 'checklist-model']);
 })();

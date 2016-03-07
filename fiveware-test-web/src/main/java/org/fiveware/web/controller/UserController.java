@@ -17,10 +17,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-//	@Autowired
-//	private InterestService interestService;
-//	@Autowired
-//	private RefDataService refDataService;
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	@ResponseBody
@@ -34,13 +30,13 @@ public class UserController {
 		return userService.findUser(userId);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.PUT)
+	@RequestMapping(value = "/user", method = RequestMethod.PUT, headers = "Accept=application/json")
 	@ResponseBody
 	public void update(@RequestBody User user) {
 		userService.saveUser(user);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "/user", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
 	public void save(@RequestBody User user) {
 		userService.saveUser(user);

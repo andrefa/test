@@ -1,14 +1,45 @@
-<main ui-view="content">
-	<div class="container">
-	    <div class="row">
-			<div class="col-md-4 col-md-offset-4">
+<main class="container">
+	<div class="panel panel-default">
+
+	  <div class="panel-heading">Usuarios</div>
 	
-				<span>It's alive!!!</span>
-				
-			</div>
-		</div>
+		<table class="table table-responsive">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Genero</th>
+					<th>Interesses</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in userListCtrl.userList">
+					<td>{{user.id}}</td>
+					<td>{{user.fullName}}</td>
+					<td>{{user.email}}</td>
+					<td>{{userListCtrl.getGenderName(user.genderId)}}</td>
+					<td>
+						<span ng-repeat="interest in user.interests">{{interest.interestDescription}}<span ng-if="!$last">,</span></span>
+					</td>
+					<td>
+						<a ui-sref="editUser({userId: user.id})">
+							<button type="button" class="btn btn-info">Editar</button>
+						</a>
+						<button type="button" class="btn btn-danger" ng-click="userListCtrl.deleteUser(user)">Excluir</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel">
+		<a ui-sref="addUser">
+			<button type="button" class="btn btn-info">Novo usuario</button>
+		</a>
 	</div>
 </main>
-<footer ui-view="footer" class="footer">
+
+<footer class="footer">
 	<p>Desenvolvido por <strong>André Felipe de Almeida</strong></p>
 </footer>

@@ -1,11 +1,11 @@
 package org.fiveware.model.entity;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,10 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.fiveware.model.entity.enums.Gender;
 
 @Entity
 @Table(name = "user")
@@ -42,16 +38,15 @@ public class User extends BaseEntity {
 	private String email;
 	
 	@Column(name="gender_id") 
-	@Enumerated(EnumType.ORDINAL) 
 	@NotNull
-	private Gender gender;
+	private Long genderId;
 	
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "user_interest", joinColumns = { 
 			@JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false) },
 		inverseJoinColumns = { 
 				@JoinColumn(name = "interest_id", referencedColumnName = "interest_id", nullable = false)})
-	private Set<Interest> interests;
+	private Set<Interest> interests = new LinkedHashSet<>();
 
 	public User() {}
 	
@@ -85,14 +80,14 @@ public class User extends BaseEntity {
 		this.email = email;
 	}
 	
-	public Gender getGender() {
-		return gender;
+	public Long getGenderId() {
+		return genderId;
 	}
-	
-	public void setGender(Gender gender) {
-		this.gender = gender;
+
+	public void setGenderId(Long genderId) {
+		this.genderId = genderId;
 	}
-	
+
 	public Set<Interest> getInterests() {
 		return interests;
 	}
@@ -100,20 +95,35 @@ public class User extends BaseEntity {
 	public void setInterests(Set<Interest> interests) {
 		this.interests = interests;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj, false);
-	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
+	}
+
+	@Override
 	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this, false);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", fullName=" + fullName + ", email=" + email + ", gender=" + gender + ", interests=" + interests + "]";
+		return "User [userId=" + userId + ", fullName=" + fullName + ", email=" + email + ", genderId=" + genderId + ", interests=" + interests + "]";
 	}
 
 }

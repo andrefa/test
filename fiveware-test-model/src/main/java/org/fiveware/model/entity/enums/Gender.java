@@ -1,9 +1,11 @@
 package org.fiveware.model.entity.enums;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Gender {
 
-	MALE(1l, "Masculino"), 
-	FEMALE(2l, "Feminino");
+	MALE(1l, "Masculino"), FEMALE(2l, "Feminino");
 
 	private Long genderId;
 	private String description;

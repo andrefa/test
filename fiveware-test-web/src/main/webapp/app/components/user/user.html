@@ -1,14 +1,67 @@
 <main ui-view="content">
-	<div class="container">
-	    <div class="row">
-			<div class="col-md-4 col-md-offset-4">
-	
-				<span>It's alive!!!</span>
-				
+<div class="container">
+	<form class="form-horizontal" name="userForm">
+		<fieldset>
+
+			<legend>Usuario</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Nome</label>
+				<div class="col-md-5">
+					<input id="textinput" name="textinput" type="text"
+						placeholder="Nome completo" class="form-control input-md"
+						required ng-model="userCtrl.user.fullName"> <span class="help-block">Informe o
+						nome completo</span>
+				</div>
 			</div>
-		</div>
-	</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="email">Email</label>
+				<div class="col-md-5">
+					<input id="email" name="email" type="email"
+						placeholder="email@dominio.com.." class="form-control input-md"
+						required ng-model="userCtrl.user.email"> <span class="help-block">Informe um
+						email valido</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="gender">Genero</label>
+				<div class="col-md-4">
+					<label class="radio-inline" for="gender-$index" ng-repeat="gender in userCtrl.genderList">
+						<input type="radio" name="gender" id="gender-$index" ng-value="gender.genderId" ng-model="userCtrl.user.genderId" required>{{gender.description}}
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="interests">Interesses</label>
+				<div class="col-md-4">
+					<label class="checkbox-inline" for="interests-$index" ng-repeat="interest in userCtrl.interestList">
+						<input type="checkbox" data-checklist-model="userCtrl.user.interests" data-checklist-value="interest"> {{interest.interestDescription}}
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="save"></label>
+				<div class="col-md-8">
+					<button id="save" ng-disabled="userForm.$invalid" name="save" class="btn btn-success" ng-click="userCtrl.saveUser()">Salvar</button>
+					<a ui-sref="/">
+						<button id="cancel" name="cancel" class="btn btn-danger">Cancelar</button>
+					</a>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+
+</div>
 </main>
+
 <footer ui-view="footer" class="footer">
-	<p>Desenvolvido por <strong>André Felipe de Almeida</strong></p>
+	<p>
+		Desenvolvido por <strong>André Felipe de Almeida</strong>
+	</p>
 </footer>

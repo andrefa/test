@@ -10,6 +10,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.CriteriaSpecification;
 
 public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
@@ -37,9 +38,9 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 	public List<T> list() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-
 		try {
 			Criteria criteria = session.createCriteria(getEntityClass());
+			criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 			return criteria.list();
 		} finally {
 			transaction.commit();

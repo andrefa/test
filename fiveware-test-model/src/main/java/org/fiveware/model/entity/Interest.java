@@ -9,9 +9,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 @Entity
 @Table(name = "interest")
 public class Interest extends BaseEntity {
@@ -44,15 +41,38 @@ public class Interest extends BaseEntity {
 	public void setId(Long id) {
 		this.interestId = id;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj, false);
+
+	public String getInterestDescription() {
+		return interestDescription;
 	}
-	
+
+	public void setInterestDescription(String interestDescription) {
+		this.interestDescription = interestDescription;
+	}
+
 	@Override
 	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this, false);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((interestId == null) ? 0 : interestId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Interest other = (Interest) obj;
+		if (interestId == null) {
+			if (other.interestId != null)
+				return false;
+		} else if (!interestId.equals(other.interestId))
+			return false;
+		return true;
 	}
 
 	@Override

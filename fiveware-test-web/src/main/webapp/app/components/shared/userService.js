@@ -6,7 +6,7 @@
     
     UserService.$inject = ['$resource'];
     function UserService($resource) {
-    	return $resource('rest/user/:userId');
+    	return $resource('rest/user/:id');
 	}
 
 })();
