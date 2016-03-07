@@ -29,6 +29,12 @@ public class Interest extends BaseEntity {
 	@NotNull
 	private String interestDescription;
 	
+	public Interest() {}
+	
+	public Interest(Long interestId) {
+		this.interestId = interestId;
+	}
+
 	@Override
 	public Long getId() {
 		return interestId;

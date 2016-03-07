@@ -20,8 +20,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public User findUser(Long userId) {
+		return userDao.findById(userId);
+	}
+	
+	@Override
 	public void saveUser(User user) {
 		userDao.save(user);
+	}
+
+	@Override
+	public void deleteUser(Long userId) {
+		userDao.delete(new User(userId));
 	}
 
 }

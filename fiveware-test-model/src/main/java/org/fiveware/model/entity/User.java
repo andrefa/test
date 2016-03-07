@@ -53,6 +53,12 @@ public class User extends BaseEntity {
 				@JoinColumn(name = "interest_id", referencedColumnName = "interest_id", nullable = false)})
 	private Set<Interest> interests;
 
+	public User() {}
+	
+	public User(Long userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public Long getId() {
 		return userId;

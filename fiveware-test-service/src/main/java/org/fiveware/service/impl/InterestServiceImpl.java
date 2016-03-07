@@ -19,4 +19,9 @@ public class InterestServiceImpl implements InterestService {
 		return interestDao.list();
 	}
 
+	@Override
+	public Interest findInterest(Long interestId) {
+		return interestDao.findById(interestId);
+	}
+
 }

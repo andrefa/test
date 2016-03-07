@@ -7,5 +7,7 @@ import org.fiveware.model.entity.Interest;
 public interface InterestService {
 
 	List<Interest> listInterests();
+
+	Interest findInterest(Long interestId);
 	
 }
