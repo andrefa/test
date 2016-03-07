@@ -18,25 +18,26 @@ CREATE SCHEMA IF NOT EXISTS `fiveware` DEFAULT CHARACTER SET utf8 ;
 USE `fiveware` ;
 
 -- -----------------------------------------------------
--- Table `fiveware`.`user`
+-- Table `user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `fiveware`.`user` ;
+DROP TABLE IF EXISTS `user` ;
 
-CREATE TABLE IF NOT EXISTS `fiveware`.`user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `user_id` BIGINT NOT NULL AUTO_INCREMENT,
   `full_name` VARCHAR(80) NOT NULL,
   `email` VARCHAR(80) NOT NULL,
+  `profile_id` BIGINT NOT NULL,
   `gender_id` BIGINT NOT NULL,
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fiveware`.`interest`
+-- Table `interest`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `fiveware`.`interest` ;
+DROP TABLE IF EXISTS `interest` ;
 
-CREATE TABLE IF NOT EXISTS `fiveware`.`interest` (
+CREATE TABLE IF NOT EXISTS `interest` (
   `interest_id` BIGINT NOT NULL AUTO_INCREMENT,
   `interest_description` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`interest_id`))
@@ -44,11 +45,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fiveware`.`user_interest`
+-- Table `user_interest`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `fiveware`.`user_interest` ;
+DROP TABLE IF EXISTS `user_interest` ;
 
-CREATE TABLE IF NOT EXISTS `fiveware`.`user_interest` (
+CREATE TABLE IF NOT EXISTS `user_interest` (
   `user_id` BIGINT NOT NULL,
   `interest_id` BIGINT NOT NULL,
   PRIMARY KEY (`user_id`, `interest_id`),
@@ -56,19 +57,19 @@ CREATE TABLE IF NOT EXISTS `fiveware`.`user_interest` (
   INDEX `fk_user_has_interest_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_has_interest_user`
     FOREIGN KEY (`user_id`)
-    REFERENCES `fiveware`.`user` (`user_id`)
+    REFERENCES `user` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_interest_interest1`
     FOREIGN KEY (`interest_id`)
-    REFERENCES `fiveware`.`interest` (`interest_id`)
+    REFERENCES `interest` (`interest_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
 CREATE USER 'fiveware' IDENTIFIED BY 'fiveware';
-GRANT ALL ON `fiveware`.* TO 'fiveware';
+GRANT ALL ON * TO 'fiveware';
 
 GRANT USAGE ON *.* TO fiveware;
 SET SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -78,14 +79,14 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `fiveware`.`interest`
+-- Data for table `interest`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fiveware`;
-INSERT INTO `fiveware`.`interest` (`interest_id`, `interest_description`) VALUES (1, 'Compras');
-INSERT INTO `fiveware`.`interest` (`interest_id`, `interest_description`) VALUES (2, 'Vendas');
-INSERT INTO `fiveware`.`interest` (`interest_id`, `interest_description`) VALUES (3, 'Informática');
-INSERT INTO `fiveware`.`interest` (`interest_id`, `interest_description`) VALUES (4, 'Cultura');
-INSERT INTO `fiveware`.`interest` (`interest_id`, `interest_description`) VALUES (5, 'Cinema');
+INSERT INTO `interest` (`interest_id`, `interest_description`) VALUES (1, 'Compras');
+INSERT INTO `interest` (`interest_id`, `interest_description`) VALUES (2, 'Vendas');
+INSERT INTO `interest` (`interest_id`, `interest_description`) VALUES (3, 'Informática');
+INSERT INTO `interest` (`interest_id`, `interest_description`) VALUES (4, 'Cultura');
+INSERT INTO `interest` (`interest_id`, `interest_description`) VALUES (5, 'Cinema');
 
 COMMIT;

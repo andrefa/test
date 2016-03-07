@@ -9,6 +9,7 @@
 					<th>Id</th>
 					<th>Nome</th>
 					<th>Email</th>
+					<th>Perfil</th>
 					<th>Genero</th>
 					<th>Interesses</th>
 					<th></th>
@@ -19,6 +20,7 @@
 					<td>{{user.id}}</td>
 					<td>{{user.fullName}}</td>
 					<td>{{user.email}}</td>
+					<td>{{userListCtrl.getProfileName(user.profileId)}}</td>
 					<td>{{userListCtrl.getGenderName(user.genderId)}}</td>
 					<td>
 						<span ng-repeat="interest in user.interests">{{interest.interestDescription}}<span ng-if="!$last">,</span></span>

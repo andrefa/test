@@ -37,6 +37,10 @@ public class User extends BaseEntity {
 	@NotNull
 	private String email;
 	
+	@Column(name="profile_id") 
+	@NotNull
+	private Long profileId;
+	
 	@Column(name="gender_id") 
 	@NotNull
 	private Long genderId;
@@ -80,6 +84,14 @@ public class User extends BaseEntity {
 		this.email = email;
 	}
 	
+	public Long getProfileId() {
+		return profileId;
+	}
+
+	public void setProfileId(Long profileId) {
+		this.profileId = profileId;
+	}
+
 	public Long getGenderId() {
 		return genderId;
 	}
